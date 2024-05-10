@@ -5,22 +5,22 @@ import { AuthProvider } from "@/contexts/auth";
 import { PrivateRoute } from "@/components/private-route";
 
 const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <Login />,
-	},
-	{
-		path: "/dashboard",
-		element: (
-			<PrivateRoute>
-				<Dashboard />
-			</PrivateRoute>
-		),
-	},
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+  },
 ]);
 
 export const App = () => (
-	<AuthProvider>
-		<RouterProvider router={router} />
-	</AuthProvider>
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 );

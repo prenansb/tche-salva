@@ -4,11 +4,11 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/auth";
 
 export const PrivateRoute = ({ children }: { children: ReactNode }) => {
-	const { user } = useAuth();
+  const { user } = useAuth();
 
-	if (user) {
-		return children;
-	}
+  if (user) {
+    return children;
+  }
 
-	return <Navigate to="/" replace />;
+  return <Navigate to="/" replace />;
 };
