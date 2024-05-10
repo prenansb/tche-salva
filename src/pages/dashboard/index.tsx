@@ -1,29 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { useAuth } from "@/contexts/auth";
-import { useNavigate } from "react-router-dom";
+import { Missing } from "@/pages/dashboard/components/missing";
+import { Sidebar } from "@/pages/dashboard/components/sidebar";
 
-export const Dashboard = () => {
-	const { logOut } = useAuth();
-	const navigate = useNavigate();
-
-	const handleLogout = async () => {
-		const response = await logOut();
-
-		console.log(response);
-
-		navigate("/");
-	};
-
+export function Dashboard() {
 	return (
-		<main className="w-screen h-screen">
-			<div className="flex h-[calc(100vh-70px)] w-full flex-col items-center justify-center p-4 lg:p-0">
-				<div className="w-full max-w-[450px] space-y-4">
-					<div className="w-full space-y-2">
-						<h1 className="text-3xl font-bold">TESTE</h1>
-						<Button onClick={handleLogout}>Logout</Button>
-					</div>
-				</div>
+		<div className="flex min-h-screen w-full flex-col bg-muted/40">
+			<Sidebar />
+			<div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+				<Missing />
 			</div>
-		</main>
+		</div>
 	);
-};
+}
